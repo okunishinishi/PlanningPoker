@@ -3,6 +3,7 @@
         clickOnTouchStart:function(){
             var elm = $(this);
             elm.get(0).addEventListener('touchstart', function(e){
+                alert('e.touches.length = ' + e.touches.length);
                 if(e.touches.length === 1){
                     elm.trigger('click');
                     e.preventDefault();
