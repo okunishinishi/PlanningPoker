@@ -1,13 +1,84 @@
 
 
 html{
-    background-color: #131;
+    background-color: #0D240D;
+    padding: 0;
+    margin: 0;
 }
 body{
     background-color: #1f722c;
     color: #131;
+    width:320px;
+    padding: 0;
+    margin: 0 auto;
+    font-family: monospace, sans-serif;
+}
+header{
+    padding: 10px 0;
+    background-color: #054605;
+}
+header h1{
+    color: #E0E00A;
+    margin: 0;
+    text-align: center;
 }
 
 .card{
     display: block;
+    text-align: center;
+    background-color: #F3F3F3;
+    border: 1px solid #EEF0EE;
+    width:80px;
+    height: 120px;
+    float: left;
+    margin: 10px;
+    font-size: 3em;
+    line-height: 120px;
+    font-weight: bold;
+    -webkit-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    -o-box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.card .number{
+    display: inline-block;
+}
+.card.even .number{
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+    display: inline-block;
+}
+.card.odd .number{
+    -webkit-transform: rotate(-10deg);
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+    display: inline-block;
+}
+
+.card.card-0{color: #f600d3;}
+.card.card-1{color: #0023f2;}
+.card.card-2{color: #00d2d2;}
+.card.card-3{color: #00e840;}
+.card.card-4{color: #dfc300;}
+.card.card-5{color: #f10602;}
+
+
+#card-choice-section{
+    margin: 0 6px;
+}
+
+.clear{
+    clear: both;
+}
+
+footer{
+    background-color: #503F15;
+    min-height: 30px;
 }

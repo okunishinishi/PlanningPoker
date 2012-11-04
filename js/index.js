@@ -2,9 +2,14 @@
     $.fn.extend({
         card:function(value){
             var card = $(this)
-                .addClass('card')
+                .addClass('card');
+            $('<span/>').addClass('number')
+                .appendTo(card)
                 .text(value);
-
+            var size = $('.card').size();
+            card
+                .addClass(size % 2 == 0 ? 'even':'odd')
+                .addClass('card-' + size);
             return card;
         },
         cardChoiceSection:function(){
@@ -16,6 +21,7 @@
                     .appendTo(section);
                 numbers.push(number);
             }
+            $('<br/>').addClass('clear').appendTo(section);
             return section;
         }
     });
