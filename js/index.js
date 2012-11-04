@@ -1,5 +1,12 @@
 (function($){
     $.fn.extend({
+        clickOnTouchStart:function(){
+            var elm = $(this);
+            elm.get(0).addEventListener('touchstart', function(){
+                elm.trigger('click');
+            });
+            return elm;
+        },
         card:function(value){
             var card = $(this)
                 .addClass('card');
@@ -10,10 +17,9 @@
             card
                 .addClass(size % 2 == 0 ? 'even':'odd')
                 .addClass('card-' + size);
-            card.get(0).addEventListener('touchstart', function(){
-                card.trigger('click');
-            });
-            card.click(function(){
+            card
+                .clickOnTouchStart()
+                .click(function(){
                 if(card.is('.disabled')) return;
                 card.addClass('disabled');
                 var style = (function(b, co, c){
@@ -21,8 +27,8 @@
                         left:c.left - co.left - 10,
                         top:c.top - b.top
                     }
-
                 })($('body').offset(), $('#content').offset(), card.offset());
+
                 var selected = card.clone()
                     .insertAfter(card)
                     .addClass('selected')
@@ -38,6 +44,7 @@
                         'border-radius':20
                     }, 500, null, function(){
                         selected
+                            .clickOnTouchStart()
                             .click(function(){
                                 if(closeBtn.is(':visible')){
                                     closeBtn.hide();
@@ -48,13 +55,21 @@
                             .dblclick(function(){
                                 closeBtn.trigger('click');
                             });
+                        selected.get(0).addEventListener('touchstart', function(e){
+                            if(e.touches.length > 1){
+                                selected.trigger('dblclick');
+                            }
+                        })
                     });
                 var closeBtn = $('<a/>')
                     .addClass('close-btn')
                     .appendTo(selected)
-                    .text('×').one('click', function(){
+                    .text('×')
+                    .clickOnTouchStart()
+                    .one('click', function(){
                         selected.fadeOut(300, function(){
                             selected.remove();
+                            $('.selected').remove();
                         })
                     }).hide();
                     card.removeClass('disabled');
