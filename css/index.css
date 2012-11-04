@@ -44,6 +44,15 @@ header h1{
     -o-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    cursor: pointer;
+}
+.card:active{
+    border-color: #333;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    background-color: #EAEAEA;
 }
 .card .number{
     display: inline-block;
@@ -75,6 +84,7 @@ header h1{
     box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
     display: block;
     z-index: 200;
+    background-color: #FDFDFD;
 }
 
 #card-choice-section{

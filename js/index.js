@@ -31,6 +31,12 @@
                         'line-height':'320px',
                         margin:0,
                         'border-radius':20
+                    }, 800, null, function(){
+                        selected.one('click', function(){
+                            selected.fadeOut(500, function(){
+                                selected.remove();
+                           })
+                        });
                     });
             });
             return card;
