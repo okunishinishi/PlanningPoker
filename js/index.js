@@ -91,6 +91,9 @@
     });
     $(function(){
         $('#card-choice-section').cardChoiceSection() ;
+        document.ontouchmove = function(event){
+            event.preventDefault();
+        }
     });
 })(jQuery);
 
