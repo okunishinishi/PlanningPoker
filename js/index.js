@@ -10,7 +10,12 @@
             card
                 .addClass(size % 2 == 0 ? 'even':'odd')
                 .addClass('card-' + size);
+            card.get(0).addEventListener('touchstart', function(){
+                card.trigger('click');
+            });
             card.click(function(){
+                if(card.is('.disabled')) return;
+                card.addClass('disabled');
                 var style = (function(b, co, c){
                     return {
                         left:c.left - co.left - 10,
@@ -52,6 +57,7 @@
                             selected.remove();
                         })
                     }).hide();
+                    card.removeClass('disabled');
             });
             return card;
         },
