@@ -1,0 +1,13 @@
+
+
+html{
+    background-color: #131;
+}
+body{
+    background-color: #1f722c;
+    color: #131;
+}
+
+.card{
+    display: block;
+}
