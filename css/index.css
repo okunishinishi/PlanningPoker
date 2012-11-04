@@ -45,6 +45,10 @@ header h1{
     -moz-border-radius: 5px;
     border-radius: 5px;
     cursor: pointer;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -o-user-select:none;
+    user-select:none;
 }
 .card:active{
     border-color: #333;
@@ -86,7 +90,18 @@ header h1{
     z-index: 200;
     background-color: #FDFDFD;
 }
-
+.card.selected a.close-btn{
+    padding: 0 20px 20px 40px;
+    color: #D0D0D0;
+    font-size: 80px;
+    position: absolute;
+    right: 0;
+    top:0;
+    line-height: 1em;
+}
+.card.selected a.close-btn:active{
+    color: #AAA;
+}
 #card-choice-section{
     margin: 0 6px;
 }

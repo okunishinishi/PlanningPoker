@@ -28,16 +28,30 @@
                         width:'100%',
                         height:'100%',
                         'font-size':'200px',
-                        'line-height':'320px',
+                        'line-height':'380px',
                         margin:0,
                         'border-radius':20
-                    }, 800, null, function(){
-                        selected.one('click', function(){
-                            selected.fadeOut(500, function(){
-                                selected.remove();
-                           })
-                        });
+                    }, 500, null, function(){
+                        selected
+                            .click(function(){
+                                if(closeBtn.is(':visible')){
+                                    closeBtn.hide();
+                                } else {
+                                    closeBtn.show();
+                                }
+                            })
+                            .dblclick(function(){
+                                closeBtn.trigger('click');
+                            });
                     });
+                var closeBtn = $('<a/>')
+                    .addClass('close-btn')
+                    .appendTo(selected)
+                    .text('×').one('click', function(){
+                        selected.fadeOut(300, function(){
+                            selected.remove();
+                        })
+                    }).hide();
             });
             return card;
         },
