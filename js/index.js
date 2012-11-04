@@ -2,8 +2,13 @@
     $.fn.extend({
         clickOnTouchStart:function(){
             var elm = $(this);
-            elm.get(0).addEventListener('touchstart', function(){
-                elm.trigger('click');
+            elm.get(0).addEventListener('touchstart', function(e){
+                if(e.touches.length === 1){
+                    elm.trigger('click');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+                }
             });
             return elm;
         },
@@ -58,6 +63,9 @@
                         selected.get(0).addEventListener('touchstart', function(e){
                             if(e.touches.length > 1){
                                 selected.trigger('dblclick');
+                                e.preventDefault();
+                                e.stopPropagation();
+                                e.stopImmediatePropagation();
                             }
                         })
                     });
