@@ -11,13 +11,13 @@
                 .addClass(size % 2 == 0 ? 'even':'odd')
                 .addClass('card-' + size);
             card.click(function(){
-                var style = (function(b, c){
+                var style = (function(b, co, c){
                     return {
-                        left:c.left - b.left - 5,
+                        left:c.left - co.left - 10,
                         top:c.top - b.top
                     }
 
-                })($('body').offset(), card.offset());
+                })($('body').offset(), $('#content').offset(), card.offset());
                 var selected = card.clone()
                     .insertAfter(card)
                     .addClass('selected')
