@@ -43,8 +43,8 @@
                             top:0,
                             width:'100%',
                             height:'100%',
-                            'font-size':'200px',
-                            'line-height':'380px',
+                            'font-size':'220px',
+                            'line-height':'400px',
                             margin:0,
                             'border-radius':20
                         }, 500, null, function () {

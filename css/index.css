@@ -14,6 +14,9 @@ body{
     font-family: monospace, sans-serif;
     position: relative;
 }
+#content{
+    min-height: 340px;
+}
 header{
     padding: 10px 0;
     background-color: #054605;
