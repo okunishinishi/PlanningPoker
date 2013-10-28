@@ -53,6 +53,23 @@ header h1{
     -o-user-select:none;
     user-select:none;
 }
+.card.wide{
+    width:287px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1em;
+    height: 40px;
+    line-height: 20px;
+}
+.card.wide .number{
+    margin: 0;
+    line-height: 40px;
+    display: inline;
+}
+.card.wide.selected .number{
+    font-size: 80px;
+}
 .card:active{
     border-color: #333;
     -webkit-box-shadow: none;

@@ -1,6 +1,6 @@
 (function ($) {
     $.fn.extend({
-        clickOnTouchStart:function () {
+        clickOnTouchStart: function () {
             var elm = $(this);
             elm.get(0).addEventListener('touchstart', function (e) {
                 if (e.touches.length === 1) {
@@ -12,7 +12,7 @@
             });
             return elm;
         },
-        card:function (value) {
+        card: function (value) {
             var card = $(this)
                 .addClass('card');
             $('<span/>').addClass('number')
@@ -29,8 +29,8 @@
                     card.addClass('disabled');
                     var style = (function (b, co, c) {
                         return {
-                            left:c.left - co.left - 10,
-                            top:c.top - b.top
+                            left: c.left - co.left - 10,
+                            top: c.top - b.top
                         }
                     })($('body').offset(), $('#content').offset(), card.offset());
 
@@ -39,14 +39,14 @@
                         .addClass('selected')
                         .css(style)
                         .animate({
-                            left:0,
-                            top:0,
-                            width:'100%',
-                            height:'100%',
-                            'font-size':'220px',
-                            'line-height':'400px',
-                            margin:0,
-                            'border-radius':20
+                            left: 0,
+                            top: 0,
+                            width: '100%',
+                            height: '100%',
+                            'font-size': '220px',
+                            'line-height': '400px',
+                            margin: 0,
+                            'border-radius': 20
                         }, 500, null, function () {
                             selected
                                 .clickOnTouchStart()
@@ -84,15 +84,17 @@
                 });
             return card;
         },
-        cardChoiceSection:function () {
+        cardChoiceSection: function () {
             var section = $(this);
-            var numbers = [0, 1];
-            while (numbers[1] < 13) {
-                var number = numbers.shift() + numbers[0];
+            var numbers = [ 0.5, 1, 2, 3, 5, 8];
+            for (var i = 0; i < numbers.length; i++) {
+                var number = numbers[i];
                 $('<div/>').card(number)
                     .appendTo(section);
-                numbers.push(number);
             }
+            $('<div/>').card("larger")
+                .addClass('wide')
+                .appendTo(section);
             $('<br/>').addClass('clear').appendTo(section);
             return section;
         }
