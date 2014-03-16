@@ -92,9 +92,9 @@
                 $('<div/>').card(number)
                     .appendTo(section);
             }
-            $('<div/>').card("larger")
-                .addClass('wide')
-                .appendTo(section);
+//            $('<div/>').card("larger")
+//                .addClass('wide')
+//                .appendTo(section);
             $('<br/>').addClass('clear').appendTo(section);
             return section;
         }
